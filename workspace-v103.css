@@ -1,0 +1,468 @@
+/* SAMI v1.1.0 — field-first workspace and full-width tool dock */
+body.sami-v103 {
+  --dock-width: 456px !important;
+  --workspace-green: #62f4aa;
+  --workspace-panel: #0d1916;
+}
+
+body.sami-v103 .topbar,
+body.sami-v103 .modebar {
+  background:
+    linear-gradient(90deg, rgba(31, 84, 61, .12), transparent 38%),
+    #0b1514;
+}
+
+body.sami-v103.studio-docked #studioDock {
+  display: flex !important;
+  flex-direction: column !important;
+  width: var(--dock-width) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(ellipse at 18% 14%, rgba(55, 219, 141, .08), transparent 38%),
+    linear-gradient(180deg, #101e1a, #0b1512 72%);
+  box-shadow: 12px 0 42px rgba(0, 0, 0, .28);
+}
+
+body.sami-v103.studio-docked:not(.dock-collapsed) #map {
+  left: var(--dock-width) !important;
+  width: calc(100% - var(--dock-width)) !important;
+}
+
+body.sami-v103 #studioDock .dock-title {
+  flex: 0 0 41px;
+  height: 41px;
+  min-height: 41px;
+  padding: 0 8px 0 12px;
+  background: rgba(13, 26, 22, .96);
+  border-bottom-color: rgba(103, 228, 168, .16);
+  backdrop-filter: blur(16px);
+}
+
+body.sami-v103 #studioDock .dock-title button {
+  width: 38px;
+  min-width: 38px;
+  height: 34px;
+  min-height: 34px;
+  border-radius: 7px;
+}
+
+body.sami-v103.studio-docked #toolRail {
+  position: relative !important;
+  z-index: 6;
+  flex: 0 0 auto;
+  display: grid !important;
+  width: 100% !important;
+  max-width: none !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 3px !important;
+  margin: 0 !important;
+  padding: 5px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(111, 222, 166, .14) !important;
+  border-radius: 0 !important;
+  background: rgba(13, 26, 22, .94) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .14) !important;
+}
+
+body.sami-v103.studio-docked #toolRail[data-rail-count="1"] { grid-template-columns: 1fr !important; }
+body.sami-v103.studio-docked #toolRail[data-rail-count="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+body.sami-v103.studio-docked #toolRail[data-rail-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+
+body.sami-v103.studio-docked #toolRail .rail-tool {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 47px !important;
+  min-height: 47px !important;
+  margin: 0 !important;
+  padding: 3px 1px !important;
+  border: 1px solid transparent;
+  border-radius: 7px !important;
+  background: rgba(255, 255, 255, .025);
+}
+
+body.sami-v103.studio-docked #toolRail .rail-tool span {
+  font-size: 18px;
+  line-height: 19px;
+}
+
+body.sami-v103.studio-docked #toolRail .rail-tool small {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 8px;
+  line-height: 1.05;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.sami-v103.studio-docked #toolRail .rail-tool.active {
+  border-color: rgba(109, 239, 174, .38);
+  background: linear-gradient(180deg, rgba(48, 112, 82, .78), rgba(28, 72, 52, .82));
+  box-shadow: inset 0 0 18px rgba(72, 241, 155, .08), 0 0 18px rgba(51, 222, 137, .08);
+}
+
+body.sami-v103.studio-docked #dockOptions {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100% !important;
+  overflow: hidden;
+  border: 0;
+}
+
+body.sami-v103.studio-docked #drawStatus {
+  position: static !important;
+  z-index: 8;
+  flex: 0 0 auto;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 7px 8px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(101, 232, 164, .18) !important;
+  border-radius: 0 !important;
+  background: linear-gradient(90deg, rgba(30, 89, 62, .70), rgba(12, 30, 23, .96)) !important;
+  box-shadow: none !important;
+}
+
+body.sami-v103.studio-docked #drawStatus[hidden] { display: none !important; }
+
+body.sami-v103.studio-docked #drawStatus .draw-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  margin: 5px 0 0 !important;
+}
+
+body.sami-v103.studio-docked #drawStatus .draw-actions button {
+  width: 100%;
+  min-height: 33px;
+  padding: 3px 5px;
+}
+
+body.sami-v103.studio-docked #dockOptions > summary { display: none !important; }
+
+body.sami-v103.studio-docked #dockOptions > .dock-body {
+  display: flex;
+  width: 100% !important;
+  height: 100%;
+  min-height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.sami-v103.studio-docked #drawer {
+  position: static !important;
+  display: flex !important;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 0;
+  max-height: none !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+body.sami-v103.studio-docked #drawer .drawer-head {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 7px 10px 5px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .055);
+  background: rgba(12, 23, 20, .80);
+}
+
+body.sami-v103.studio-docked #drawer .drawer-head h2 {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: -.2px;
+}
+
+body.sami-v103.studio-docked #drawerContent,
+body.sami-v103.studio-docked #drawer .drawer-content {
+  flex: 1 1 auto;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: none !important;
+  min-height: 0;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 0 20px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+body.sami-v103 #drawerContent > *,
+body.sami-v103 .compact-section,
+body.sami-v103 .compact-section-body,
+body.sami-v103 .compact-asset-list,
+body.sami-v103 .compact-asset-row,
+body.sami-v103 .asset-category,
+body.sami-v103 .asset-grid,
+body.sami-v103 .asset-list,
+body.sami-v103 .draw-library,
+body.sami-v103 .plan-object-list {
+  width: 100% !important;
+  max-width: none !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+body.sami-v103 .draw-mode-bar {
+  position: sticky !important;
+  top: 0;
+  z-index: 9;
+  display: grid;
+  width: 100% !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 3px !important;
+  margin: 0 !important;
+  padding: 5px !important;
+  border-bottom: 1px solid rgba(103, 235, 169, .15);
+  border-radius: 0 !important;
+  background: rgba(11, 22, 18, .97) !important;
+  backdrop-filter: blur(16px);
+}
+
+body.sami-v103 .draw-mode-bar button,
+body.sami-v103 .draw-mode-bar .show-all {
+  grid-column: auto !important;
+  min-width: 0 !important;
+  min-height: 34px !important;
+  padding: 2px 3px !important;
+  overflow: hidden;
+  font-size: 8px !important;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+}
+
+body.sami-v103 .active-draw-strip {
+  width: calc(100% - 10px) !important;
+  margin: 5px !important;
+  padding: 6px 8px;
+  background: linear-gradient(90deg, rgba(36, 93, 67, .58), rgba(18, 44, 34, .56));
+  border-color: rgba(90, 213, 151, .28);
+}
+
+body.sami-v103 .compact-section {
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .06) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+body.sami-v103 .compact-section > summary,
+body.sami-v103 .asset-category > summary {
+  width: 100% !important;
+  min-height: 43px;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  border-radius: 0 !important;
+  background: rgba(255, 255, 255, .018);
+}
+
+body.sami-v103 .compact-section[open] > summary,
+body.sami-v103 .asset-category[open] > summary {
+  background: rgba(71, 156, 112, .10);
+}
+
+body.sami-v103 .compact-section-body,
+body.sami-v103 .compact-asset-list,
+body.sami-v103 .asset-grid,
+body.sami-v103 .asset-list.visual-assets,
+body.sami-v103 .asset-list.compact,
+body.sami-v103 .draw-library {
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+  padding: 0 !important;
+}
+
+body.sami-v103 .compact-asset-row,
+body.sami-v103 .asset-palette,
+body.sami-v103 .draw-library-item,
+body.sami-v103 .plan-object-list button {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 48px !important;
+  margin: 0 !important;
+  padding: 7px 12px !important;
+  border-right: 0 !important;
+  border-left: 0 !important;
+  border-radius: 0 !important;
+}
+
+body.sami-v103 .compact-asset-row {
+  grid-template-columns: 40px minmax(0, 1fr) !important;
+}
+
+body.sami-v103 .asset-palette {
+  display: grid !important;
+  grid-template-columns: 66px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 9px !important;
+  text-align: left;
+}
+
+body.sami-v103 .asset-palette .asset-preview {
+  width: 62px;
+  height: 43px;
+  min-height: 43px;
+  padding: 4px;
+}
+
+body.sami-v103 .asset-palette .asset-copy { font-size: 10px; }
+
+body.sami-v103 .style-editor-compact,
+body.sami-v103 .selected-summary,
+body.sami-v103 .replace-row,
+body.sami-v103 .selection-quick-v093,
+body.sami-v103 .compact-action-row,
+body.sami-v103 .two-way-toggle,
+body.sami-v103 .style-choice-grid,
+body.sami-v103 .area-summary,
+body.sami-v103 .area-method-grid,
+body.sami-v103 .service-check,
+body.sami-v103 .service-add-row {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+body.sami-v103 .style-editor-compact,
+body.sami-v103 .selected-summary,
+body.sami-v103 .replace-row,
+body.sami-v103 .selection-quick-v093,
+body.sami-v103 .compact-action-row,
+body.sami-v103 .two-way-toggle,
+body.sami-v103 .style-choice-grid,
+body.sami-v103 .area-summary,
+body.sami-v103 .area-method-grid {
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
+
+body.sami-v103 .v103-search { margin: 7px 8px 5px; width: calc(100% - 16px); }
+body.sami-v103 .v103-explore-row { margin-top: 0; }
+body.sami-v103 .v103-area-button { width: calc(100% - 16px) !important; margin: 6px 8px !important; }
+
+.field-capture-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px;
+  border-top: 1px solid rgba(255, 255, 255, .055);
+  border-bottom: 1px solid rgba(255, 255, 255, .055);
+  background: rgba(78, 188, 132, .055);
+}
+
+.field-capture-strip > span { min-width: 0; }
+.field-capture-strip strong { display: block; font-size: 10px; color: #e4f4ec; }
+.field-capture-strip small { display: block; margin-top: 2px; color: #819d90; font-size: 8px; line-height: 1.25; }
+.field-capture-strip > div { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.field-capture-strip button { min-height: 36px; padding: 4px 9px; font-size: 9px; }
+
+.v103-note-field {
+  display: block;
+  width: 100%;
+  min-height: 128px;
+  resize: vertical;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.marker-output-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 54px;
+  padding: 8px 12px;
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+  background: rgba(74, 176, 124, .055);
+}
+
+.marker-output-toggle span { min-width: 0; }
+.marker-output-toggle strong { display: block; font-size: 10px; }
+.marker-output-toggle small { display: block; margin-top: 2px; color: #829c91; font-size: 8px; }
+.marker-output-toggle input { width: 19px; height: 19px; flex: 0 0 auto; }
+
+.service-guidance {
+  display: grid;
+  gap: 4px;
+  width: calc(100% - 16px);
+  margin: 8px;
+  padding: 10px 11px;
+  border: 1px solid rgba(223, 174, 76, .22);
+  border-radius: 8px;
+  background: rgba(151, 103, 30, .08);
+  color: #9fb2aa;
+  font-size: 8px;
+  line-height: 1.45;
+}
+
+.service-guidance strong { color: #e7d6aa; font-size: 9px; }
+
+body.sami-v103 .selection-bar {
+  max-width: calc(100% - var(--dock-width) - 110px);
+  background: rgba(10, 25, 20, .92);
+  border-color: rgba(95, 222, 158, .26);
+  backdrop-filter: blur(16px);
+}
+
+body.sami-v103 #dockReopen.workspace-tool-tab {
+  border-radius: 0 11px 11px 0 !important;
+  background: rgba(10, 32, 24, .94) !important;
+  border-right-color: rgba(99, 235, 169, .48) !important;
+  box-shadow: 7px 0 24px rgba(0, 0, 0, .42), 0 0 22px rgba(52, 224, 139, .09) !important;
+}
+
+body.sami-v103.dock-collapsed #studioDock { display: none !important; }
+body.sami-v103.dock-collapsed #map,
+body.sami-v103.dock-collapsed .creator-workspace { left: 0 !important; width: 100% !important; }
+
+body.sami-v103 .map-style-options {
+  background: rgba(9, 24, 19, .94);
+  border-color: rgba(89, 205, 146, .32);
+  box-shadow: 0 10px 31px rgba(0, 0, 0, .50), 0 0 20px rgba(56, 225, 142, .07);
+}
+
+body.sami-v103 .leaflet-top.leaflet-left { display: none !important; }
+
+@media (max-width: 1260px) {
+  body.sami-v103 { --dock-width: 420px !important; }
+}
+
+@media (max-width: 900px) {
+  body.sami-v103 { --dock-width: min(410px, 92vw) !important; }
+  body.sami-v103.studio-docked:not(.dock-collapsed) #map { left: 0 !important; width: 100% !important; }
+  body.sami-v103.studio-docked #toolRail { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  body.sami-v103.studio-docked #toolRail[data-rail-count="1"] { grid-template-columns: 1fr !important; }
+  body.sami-v103.studio-docked #toolRail[data-rail-count="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  body.sami-v103.studio-docked #toolRail[data-rail-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  body.sami-v103 .selection-bar { max-width: calc(100% - 24px); }
+}
+
+@media (max-width: 540px) {
+  body.sami-v103 { --dock-width: 94vw !important; }
+  body.sami-v103 .draw-mode-bar { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  body.sami-v103 .field-capture-strip { grid-template-columns: 1fr; }
+  body.sami-v103 .field-capture-strip > div { width: 100%; }
+}
+
+@media (max-height: 620px) and (orientation: landscape) {
+  body.sami-v103 #studioDock .dock-title { flex-basis: 36px; height: 36px; min-height: 36px; }
+  body.sami-v103.studio-docked #toolRail .rail-tool { height: 39px !important; min-height: 39px !important; }
+  body.sami-v103.studio-docked #toolRail .rail-tool small { display: none !important; }
+}

@@ -1,0 +1,35 @@
+/* SAMI 1.0 fresh-start layout + install gate */
+html.install-required #app,html.install-required #splash,html.install-required #salesIntroLayer{display:none!important}
+#mobileInstallGate{display:none;position:fixed;inset:0;z-index:30000;place-items:center;padding:max(24px,env(safe-area-inset-top)) 22px max(24px,env(safe-area-inset-bottom));background:radial-gradient(ellipse at 50% 42%,#10251f 0,#07100d 36%,#020504 72%,#000 100%);color:#eef9f4;text-align:center}
+html.install-required #mobileInstallGate{display:grid!important}
+.install-gate-card{width:min(520px,92vw);display:grid;justify-items:center;gap:18px;padding:30px 24px;border:1px solid #76eab42d;border-radius:22px;background:#07100ddb;box-shadow:0 25px 80px #000b,0 0 70px #50eea014;backdrop-filter:blur(20px)}
+.install-gate-card img{width:min(330px,72vw);height:auto;filter:drop-shadow(0 0 24px #51efa22f)}
+.install-gate-card h1{margin:2px 0 0;font-size:clamp(25px,6vw,38px);letter-spacing:-.035em}.install-gate-card p{margin:0;color:#9eb2a9;font-size:13px;line-height:1.55;max-width:430px}.install-gate-copy{display:grid;gap:8px;width:100%;padding:15px 16px;border:1px solid #ffffff15;border-radius:14px;background:#ffffff07;font-size:12px;line-height:1.55;color:#b9cac2}.install-gate-copy strong{font-size:13px;color:#eafff4}.install-gate-card button{width:100%;min-height:52px;border-radius:14px;border-color:#69efad;background:linear-gradient(180deg,#62f2ad,#37d694);color:#04110b;font-weight:800;box-shadow:0 0 34px #44e99d2d}.install-gate-foot{font-size:9px!important;letter-spacing:.14em;text-transform:uppercase;color:#678078!important}
+#salesIntroLayer{display:none;position:fixed;inset:0;z-index:28000;background:#020504}html.sales-intro-active #salesIntroLayer{display:block!important}html.sales-intro-active #app{visibility:hidden!important;pointer-events:none!important}#salesIntroFrame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#020504}#salesIntroSkip{position:absolute;z-index:4;right:max(20px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));min-height:38px;padding:0 16px;border-radius:999px;border:1px solid #ffffff1a;background:#07100dc7;color:#9db0a7;font-size:10px;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(12px)}
+/* retire the old startup card: the integrated sales film is the startup experience */
+#splash{display:none!important}
+/* Full-width structured sidebar */
+body.sami-v093{--dock-width:420px!important}
+body.sami-v093.studio-docked #studioDock{width:var(--dock-width)!important}
+body.sami-v093.studio-docked:not(.dock-collapsed) #map{left:var(--dock-width)!important;width:calc(100% - var(--dock-width))!important}
+body.sami-v093.studio-docked #toolRail{width:100%!important;max-width:none!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:2px!important;padding:4px 0!important;margin:0!important;border-radius:0!important}
+body.sami-v093.studio-docked #toolRail .rail-tool{width:100%!important;min-width:0!important;margin:0!important;border-radius:5px!important;padding:2px 1px!important}
+body.sami-v093.studio-docked #dockOptions,body.sami-v093.studio-docked #dockOptions>.dock-body,body.sami-v093.studio-docked #drawer,body.sami-v093.studio-docked #drawerContent{width:100%!important;max-width:none!important;margin:0!important}
+body.sami-v093.studio-docked #dockOptions>.dock-body{padding:0!important}
+body.sami-v093.studio-docked #drawer .drawer-head{padding:7px 10px 4px!important}
+body.sami-v093.studio-docked #drawer .drawer-content{padding:0 0 18px!important;overflow-x:hidden!important}
+body.sami-v093 #drawerContent>*{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+body.sami-v093 .draw-mode-bar{width:100%!important;margin:0!important;padding:4px!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:3px!important;border-radius:0!important}
+body.sami-v093 .draw-mode-bar button{min-width:0!important;padding:0 3px!important;font-size:9px!important}
+body.sami-v093 .draw-mode-bar .show-all{grid-column:1/-1!important}
+body.sami-v093 .compact-section,body.sami-v093 .compact-section-body,body.sami-v093 .compact-asset-list{width:100%!important;max-width:none!important;margin:0!important;padding-left:0!important;padding-right:0!important}
+body.sami-v093 .compact-section>summary{width:100%!important;margin:0!important;padding:0 10px!important;border-radius:0!important}
+body.sami-v093 .compact-section-body{padding-bottom:5px!important}
+body.sami-v093 .compact-asset-list{gap:2px!important}
+body.sami-v093 .compact-asset-row{display:grid!important;width:100%!important;max-width:none!important;margin:0!important;border-radius:0!important;border-left:0!important;border-right:0!important;padding:7px 10px!important;grid-template-columns:40px minmax(0,1fr)!important;min-height:47px!important}
+body.sami-v093 .selected-summary,body.sami-v093 .replace-row,body.sami-v093 .style-editor-compact,body.sami-v093 .selection-quick-v093{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+body.sami-v093 .style-editor-compact,body.sami-v093 .selected-summary{padding-left:9px!important;padding-right:9px!important}
+body.sami-v093 .replace-row,body.sami-v093 .selection-quick-v093{padding-left:5px!important;padding-right:5px!important}
+@media(max-width:1199px){body.sami-v093{--dock-width:380px!important}}
+@media(max-width:850px){body.sami-v093{--dock-width:min(360px,88vw)!important}.studio-docked:not(.dock-collapsed) #map{left:0!important;width:100%!important}.studio-docked #studioDock{box-shadow:9px 0 32px #0009}body.sami-v093.studio-docked #toolRail{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(max-width:520px){body.sami-v093{--dock-width:92vw!important}body.sami-v093.studio-docked #toolRail{grid-template-columns:repeat(4,minmax(0,1fr))!important}.install-gate-card{padding:24px 17px}}

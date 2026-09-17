@@ -1,0 +1,33 @@
+/* SAMI v1.0.1 — full-width sidebar + field capture polish */
+body.sami-v093{--dock-width:440px!important}
+body.sami-v093.studio-docked #studioDock{width:var(--dock-width)!important;padding-left:0!important;padding-right:0!important}
+body.sami-v093.studio-docked:not(.dock-collapsed) #map{left:var(--dock-width)!important;width:calc(100% - var(--dock-width))!important}
+body.sami-v093.studio-docked #dockOptions,body.sami-v093.studio-docked #dockOptions>.dock-body,body.sami-v093.studio-docked #drawer,body.sami-v093.studio-docked #drawerContent,body.sami-v093.studio-docked .drawer-content{width:100%!important;max-width:none!important;margin:0!important;padding-left:0!important;padding-right:0!important}
+body.sami-v093.studio-docked .drawer-content{padding-bottom:18px!important}
+body.sami-v093.studio-docked #drawerContent>*{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+body.sami-v093 .compact-section,body.sami-v093 .compact-section-body,body.sami-v093 .compact-asset-list,body.sami-v093 .asset-category,body.sami-v093 .asset-list,body.sami-v093 .draw-library,body.sami-v093 .plan-object-list{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+body.sami-v093 .compact-section-body{padding-left:0!important;padding-right:0!important}
+body.sami-v093 .compact-section>summary,body.sami-v093 .asset-category>summary{width:100%!important;border-radius:0!important;margin:0!important;padding-left:12px!important;padding-right:12px!important}
+body.sami-v093 .compact-asset-row,body.sami-v093 .asset-palette,body.sami-v093 .draw-library-item,body.sami-v093 .plan-object-list button{width:100%!important;max-width:none!important;margin:0!important;border-left:0!important;border-right:0!important;border-radius:0!important;padding-left:12px!important;padding-right:12px!important}
+body.sami-v093 .asset-category{border-left:0!important;border-right:0!important;border-radius:0!important;padding:0!important;margin-top:0!important;margin-bottom:0!important}
+body.sami-v093 .asset-list.visual-assets,body.sami-v093 .asset-list.compact,body.sami-v093 .draw-library{grid-template-columns:1fr!important;gap:0!important;padding:0!important}
+body.sami-v093 .compact-asset-list{gap:0!important}
+body.sami-v093 .draw-mode-bar{width:100%!important;margin:0!important;padding:4px!important;border-radius:0!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
+body.sami-v093 .draw-mode-bar .show-all{grid-column:1/-1!important}
+body.sami-v093.studio-docked #toolRail{width:100%!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;padding:4px!important;gap:2px!important}
+body.sami-v093.studio-docked #toolRail .rail-tool{min-width:0!important;width:100%!important}
+body.dock-collapsed #studioDock{display:none!important}
+body.dock-collapsed #map,body.dock-collapsed .creator-workspace{left:0!important;width:100%!important}
+body.dock-collapsed #dockReopen{display:block!important}
+body.sami-v093 #dockReopen.workspace-tool-tab{position:absolute!important;left:0!important;top:50%!important;transform:translateY(-50%)!important;z-index:2200!important;border-radius:0 10px 10px 0!important;border-left:0!important;padding:13px 7px!important;min-width:32px!important;min-height:86px!important;background:#101c19eb!important;box-shadow:6px 0 22px #0007!important;writing-mode:vertical-rl!important}
+body.sami-v093 #railCollapse{display:none!important}
+.explore-capture-v101{display:grid;grid-template-columns:1fr 1fr;gap:4px;width:100%;padding:7px 0 0}.explore-capture-v101 button{min-height:42px;border-radius:7px}.explore-capture-note{font-size:9px;color:#8fa99e;line-height:1.45;padding:7px 10px 9px;border-bottom:1px solid #ffffff0e}.explore-capture-note strong{color:#dcebe5}
+#salesIntroSkip{display:none!important}
+#closeAppV101{min-width:58px;padding:0 10px!important}
+#samiClosedScreen{position:fixed;inset:0;z-index:50000;display:grid;place-items:center;background:#000;color:#83968d;text-align:center;letter-spacing:.12em;text-transform:uppercase;font-size:10px}
+#samiClosedScreen img{width:min(330px,64vw);opacity:.4;filter:grayscale(.4)}
+@media(max-width:1240px){body.sami-v093{--dock-width:410px!important}}
+@media(max-width:850px){body.sami-v093{--dock-width:min(390px,92vw)!important}body.sami-v093.studio-docked:not(.dock-collapsed) #map{left:0!important;width:100%!important}}
+@media(max-width:520px){body.sami-v093{--dock-width:94vw!important}.explore-capture-v101{grid-template-columns:1fr 1fr}}
+
+@media(max-width:760px){#closeAppV101{font-size:0!important;min-width:38px!important}#closeAppV101:after{content:"×";font-size:19px}}
