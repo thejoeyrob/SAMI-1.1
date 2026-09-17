@@ -1,10 +1,5 @@
 [
   {
-    "file": ".github/workflows/pages.yml",
-    "bytes": 610,
-    "sha256": "b97b3d0e85e69348160f017427bf3187a1923d396278af8558dce81f95c63b8d"
-  },
-  {
     "file": ".nojekyll",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -23,16 +18,6 @@
     "file": "asset-symbols.3029f85090.js",
     "bytes": 6837,
     "sha256": "3029f8509075ab4bf96ce470b3230add765615b2e7f398aaeba879893ac424e7"
-  },
-  {
-    "file": "brand-intro.9f5585bb8c.css",
-    "bytes": 14132,
-    "sha256": "6eb166cfdf25da3b61db74573791678b0d275592f624daa4c4970c8a1e7636fe"
-  },
-  {
-    "file": "brand-intro.c1af4ad588.js",
-    "bytes": 7432,
-    "sha256": "acbbbbd61961ef6a4d5d54f8a96ab169bf0ff88a8a0b31cc3988fae36bd0be03"
   },
   {
     "file": "config.6cd826fde3.js",
@@ -61,33 +46,13 @@
   },
   {
     "file": "index.html",
-    "bytes": 14992,
-    "sha256": "a38428f58dcd6f4709fa1851ac197365a7ea9f94664c834e88f45e0598566f49"
+    "bytes": 14675,
+    "sha256": "a3224751583b12aa97919fa8ee0ca67147e4c8e70dc791b5d790b97a2183d6eb"
   },
   {
     "file": "intelligent-object.39c7da95af.js",
     "bytes": 5033,
     "sha256": "39c7da95af1dc7cbf59d728f53a54f168e9c537c1c7b4d340f1c0a8f0edf1f2d"
-  },
-  {
-    "file": "launch-v100.js",
-    "bytes": 4550,
-    "sha256": "2279dd1797ab0db2b8663c0a74ea1da9c39be549644acc14174fee621792a36e"
-  },
-  {
-    "file": "launch-v101.js",
-    "bytes": 2172,
-    "sha256": "2c76f1fef336c396ce0b441aee7c3fbd501d92739a6b79356377adcb9a7b028a"
-  },
-  {
-    "file": "launch-v103.css",
-    "bytes": 22436,
-    "sha256": "677a6dbad596b0af7b90a8002a4c46f8b429b5f9c6592232e8471d991e656d1f"
-  },
-  {
-    "file": "launch-v103.js",
-    "bytes": 25674,
-    "sha256": "fdb12bbaf0f2bb9babf7e07144b6062c6656342cb06ea401eb9fd59c0f939750"
   },
   {
     "file": "layers-2x.066daca850.png",
@@ -116,8 +81,8 @@
   },
   {
     "file": "manifest.webmanifest",
-    "bytes": 781,
-    "sha256": "198840d808e61043734bffd1db098f4e9db4dbb28abfce53416e5e3ab2e3f30b"
+    "bytes": 791,
+    "sha256": "222cd11e66d7f57cc4a54877278bae67785935fa0b9788f141b0f3ddcfed9cee"
   },
   {
     "file": "marker-icon-2x.00179c4c1e.png",
@@ -136,8 +101,8 @@
   },
   {
     "file": "meet.html",
-    "bytes": 3913,
-    "sha256": "233a0a1d3d68e8f346fbfbbcd409ec45f5993afb76f9c95d101264d28bb8e2ff"
+    "bytes": 572,
+    "sha256": "1d420062ea68fcf33cacbeea432a34e96c10874ee52748fb9bc90f4ead90531a"
   },
   {
     "file": "POLYGON-CLIPPING-LICENSE.md",
@@ -156,28 +121,33 @@
   },
   {
     "file": "README.md",
-    "bytes": 2400,
-    "sha256": "cf49c256ea2c63e0c8950e2d5914a9c07cdec1ed129257e7020ece6362974da8"
+    "bytes": 1676,
+    "sha256": "f1979369e04cf20cf0e2577af77d46da500ffdaa3f1efcad9624f250e724526d"
   },
   {
-    "file": "sales-pitch.css",
-    "bytes": 8049,
-    "sha256": "d97c17f7c3a6d285589f3fd7dfca1784b47092ed6385f627ca325849dbe11e64"
+    "file": "sami-cinematic-sfx.mp3",
+    "bytes": 294380,
+    "sha256": "391e2159740ee952f1b29b328420f5103b213582f794852ee6221bdf512a36f0"
   },
   {
-    "file": "sales-pitch.js",
-    "bytes": 8813,
-    "sha256": "3635bcfe901b5b6b5145a90402afa36dd45e6ff87ba72a503a095e1dda228bfc"
+    "file": "sami-launch-v120.css",
+    "bytes": 9695,
+    "sha256": "7bbb17bd647fcd55916eedccb070df17f2d771d06b79fd0d344b504ddfec8bdf"
   },
   {
-    "file": "sami-intro.1c4c23273f.mp3",
-    "bytes": 98681,
-    "sha256": "1c4c23273fcf83774ee2d8901337ec745382f2cc44525dfc1c49f66464261f49"
+    "file": "sami-launch-v120.js",
+    "bytes": 18277,
+    "sha256": "9aed7cb32fac49b8e586d377e3c8385e85595630fc36fd55448f77fa61a85a7d"
   },
   {
     "file": "sami-mark.a35b3708c9.png",
     "bytes": 36765,
     "sha256": "a35b3708c9f299ed60b0ab8642c833278fd68c0f662ed74720781175d840668e"
+  },
+  {
+    "file": "sami-pitch-bed.mp3",
+    "bytes": 769580,
+    "sha256": "4709956c3704058999d00394097f6b9dd1cb98c9aca62405f179381bb74d11fb"
   },
   {
     "file": "sami-qrcode.226c9e4d49.js",
@@ -211,8 +181,8 @@
   },
   {
     "file": "sw.js",
-    "bytes": 2668,
-    "sha256": "c64e1af4854553d6169c40ed31d41332633bb31641d76a7adc1ceb61fb8759b0"
+    "bytes": 2419,
+    "sha256": "3327a107195c4d46a2dd459f1cbbcb416996844e165e8899f3daacdeb4628ace"
   },
   {
     "file": "voice-accessPoint.a2219d93d9.mp3",
@@ -326,8 +296,8 @@
   },
   {
     "file": "workspace-v093.9295827c64.js",
-    "bytes": 34805,
-    "sha256": "d07af621aa1a957eb2ba8c539261ded0d8842eaa45909cff7040fc94fcea7f7e"
+    "bytes": 34917,
+    "sha256": "360c2662d7efa07de789e6c0411fab82eac0da1a7af87393981db011154cd362"
   },
   {
     "file": "workspace-v093.fd2fa0d618.css",
@@ -335,28 +305,13 @@
     "sha256": "fd2fa0d618e4f3e7fffefa4bf4880b3a8e31560b24bfc4162b71817560ab5e3f"
   },
   {
-    "file": "workspace-v094.css",
-    "bytes": 3107,
-    "sha256": "32fc3e7306cf3c0df4dea59f4ed312c8869afd7286a1823b8789b281552f9846"
+    "file": "workspace-v120.css",
+    "bytes": 33528,
+    "sha256": "e84b644e975207412cb7afa6c878ead375385bade3a333761043a7bb29ea4192"
   },
   {
-    "file": "workspace-v100.css",
-    "bytes": 5925,
-    "sha256": "78fc5bc442b0fa28ce3982bcea1f3d7b5cb7f9704261ae19bc8cc174aa617671"
-  },
-  {
-    "file": "workspace-v101.css",
-    "bytes": 4658,
-    "sha256": "ede7018b6ee0059d7205aca2797611f3bb12df0b5f163ed1f35a7eb7440412e1"
-  },
-  {
-    "file": "workspace-v103.css",
-    "bytes": 14081,
-    "sha256": "d033b932fa013fbd9cb57559de6c18cd5184e855595abdbef9cfe23bf35dda18"
-  },
-  {
-    "file": "workspace-v103.js",
-    "bytes": 8472,
-    "sha256": "3ba32a9ae622d1cdc31a6d9386095c5baf04d37c5a2275e1c05863be966ed62c"
+    "file": "workspace-v120.js",
+    "bytes": 11353,
+    "sha256": "c556003cea940ea84084f636573e029942ad26e402f34c38e856b93a9b726aff"
   }
 ]

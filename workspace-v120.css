@@ -1,0 +1,593 @@
+
+/* SAMI v0.9.4 layout + launch refinements */
+html.browser-gated #app{display:none!important}
+body.sami-v093{--dock-width:390px}
+body.sami-v093.studio-docked[data-master-mode="plan"] #toolRail{grid-template-columns:repeat(7,minmax(0,1fr))!important}
+body.sami-v093.studio-docked #toolRail{width:100%!important}
+body.sami-v093.studio-docked #toolRail .rail-tool{min-width:0!important;width:100%!important;height:42px!important}
+body.sami-v093.studio-docked .drawer-content{width:100%!important;padding:6px 10px 22px!important}
+body.sami-v093 .compact-section,body.sami-v093 .compact-section-body,body.sami-v093 .compact-asset-list,body.sami-v093 .compact-asset-row{width:100%!important;max-width:none!important}
+body.sami-v093 .compact-asset-row{grid-template-columns:38px minmax(0,1fr);padding:7px 9px;min-height:46px}
+body.sami-v093 .draw-mode-bar{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+body.sami-v093 .draw-mode-bar .show-all{grid-column:1/-1}
+@media(max-width:1100px){body.sami-v093{--dock-width:350px}body.sami-v093.studio-docked[data-master-mode="plan"] #toolRail{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(max-width:700px){body.sami-v093{--dock-width:300px}.studio-docked #studioDock{width:min(var(--dock-width),86vw)!important}.studio-docked:not(.dock-collapsed) #map{left:0!important;width:100%!important}.studio-docked:not(.dock-collapsed) #studioDock{box-shadow:8px 0 28px #0008}.draw-mode-bar{position:sticky!important;top:0!important}.mode-tabs button{min-width:0!important;flex:1}.mode-tabs{width:100%}}
+/* desktop cinematic balance */
+@media(min-width:1100px){.launch-panel{width:min(980px,88vw)!important;min-height:min(650px,86vh)!important}.launch-brand-wrap{width:min(760px,68vw)!important}.launch-panel h1{font-size:clamp(34px,3.2vw,48px)!important}.launch-copy>p{font-size:14px!important;max-width:610px!important}.intro-ground-glow{width:min(66vw,900px)!important;height:min(18vw,240px)!important}}
+/* keep the pin visible through the handoff; JS moves the whole pin stage into the exact logo point */
+.launch-screen.intro-running .intro-pin{animation:pinArrivalV094 4.35s cubic-bezier(.18,.72,.22,1) .22s both!important}
+.launch-screen.pin-handoff .intro-pin-stage{will-change:transform,left,top}
+.launch-screen.pin-handoff .intro-pin{opacity:1!important;filter:drop-shadow(0 0 14px rgba(78,255,170,.5))!important}
+.launch-screen.intro-complete .intro-pin{opacity:0!important;transition:opacity .24s ease!important}
+@keyframes pinArrivalV094{0%{opacity:0;transform:translate(-50%,-50%) translateY(-82vh) scale(.72);filter:blur(4px)}8%{opacity:1}23%{transform:translate(-50%,-50%) translateY(20px) scale(.94,.84);filter:blur(0)}28%{transform:translate(-50%,-50%) translateY(8px) scale(1.02,.97)}43%{transform:translate(-50%,-50%) translateY(-4px) scale(.97);filter:drop-shadow(0 0 11px rgba(59,255,174,.44))}70%{transform:translate(-50%,-50%) translateY(-7px) scale(.98);filter:drop-shadow(0 0 18px rgba(80,255,165,.58))}100%{opacity:1;transform:translate(-50%,-50%) translateY(-6px) scale(.98);filter:drop-shadow(0 0 20px rgba(80,255,165,.62))}}
+/* SAMI 1.0 fresh-start layout + install gate */
+html.install-required #app,html.install-required #splash,html.install-required #salesIntroLayer{display:none!important}
+#mobileInstallGate{display:none;position:fixed;inset:0;z-index:30000;place-items:center;padding:max(24px,env(safe-area-inset-top)) 22px max(24px,env(safe-area-inset-bottom));background:radial-gradient(ellipse at 50% 42%,#10251f 0,#07100d 36%,#020504 72%,#000 100%);color:#eef9f4;text-align:center}
+html.install-required #mobileInstallGate{display:grid!important}
+.install-gate-card{width:min(520px,92vw);display:grid;justify-items:center;gap:18px;padding:30px 24px;border:1px solid #76eab42d;border-radius:22px;background:#07100ddb;box-shadow:0 25px 80px #000b,0 0 70px #50eea014;backdrop-filter:blur(20px)}
+.install-gate-card img{width:min(330px,72vw);height:auto;filter:drop-shadow(0 0 24px #51efa22f)}
+.install-gate-card h1{margin:2px 0 0;font-size:clamp(25px,6vw,38px);letter-spacing:-.035em}.install-gate-card p{margin:0;color:#9eb2a9;font-size:13px;line-height:1.55;max-width:430px}.install-gate-copy{display:grid;gap:8px;width:100%;padding:15px 16px;border:1px solid #ffffff15;border-radius:14px;background:#ffffff07;font-size:12px;line-height:1.55;color:#b9cac2}.install-gate-copy strong{font-size:13px;color:#eafff4}.install-gate-card button{width:100%;min-height:52px;border-radius:14px;border-color:#69efad;background:linear-gradient(180deg,#62f2ad,#37d694);color:#04110b;font-weight:800;box-shadow:0 0 34px #44e99d2d}.install-gate-foot{font-size:9px!important;letter-spacing:.14em;text-transform:uppercase;color:#678078!important}
+#salesIntroLayer{display:none;position:fixed;inset:0;z-index:28000;background:#020504}html.sales-intro-active #salesIntroLayer{display:block!important}html.sales-intro-active #app{visibility:hidden!important;pointer-events:none!important}#salesIntroFrame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#020504}#salesIntroSkip{position:absolute;z-index:4;right:max(20px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));min-height:38px;padding:0 16px;border-radius:999px;border:1px solid #ffffff1a;background:#07100dc7;color:#9db0a7;font-size:10px;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(12px)}
+/* retire the old startup card: the integrated sales film is the startup experience */
+#splash{display:none!important}
+/* Full-width structured sidebar */
+body.sami-v093{--dock-width:420px!important}
+body.sami-v093.studio-docked #studioDock{width:var(--dock-width)!important}
+body.sami-v093.studio-docked:not(.dock-collapsed) #map{left:var(--dock-width)!important;width:calc(100% - var(--dock-width))!important}
+body.sami-v093.studio-docked #toolRail{width:100%!important;max-width:none!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:2px!important;padding:4px 0!important;margin:0!important;border-radius:0!important}
+body.sami-v093.studio-docked #toolRail .rail-tool{width:100%!important;min-width:0!important;margin:0!important;border-radius:5px!important;padding:2px 1px!important}
+body.sami-v093.studio-docked #dockOptions,body.sami-v093.studio-docked #dockOptions>.dock-body,body.sami-v093.studio-docked #drawer,body.sami-v093.studio-docked #drawerContent{width:100%!important;max-width:none!important;margin:0!important}
+body.sami-v093.studio-docked #dockOptions>.dock-body{padding:0!important}
+body.sami-v093.studio-docked #drawer .drawer-head{padding:7px 10px 4px!important}
+body.sami-v093.studio-docked #drawer .drawer-content{padding:0 0 18px!important;overflow-x:hidden!important}
+body.sami-v093 #drawerContent>*{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+body.sami-v093 .draw-mode-bar{width:100%!important;margin:0!important;padding:4px!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:3px!important;border-radius:0!important}
+body.sami-v093 .draw-mode-bar button{min-width:0!important;padding:0 3px!important;font-size:9px!important}
+body.sami-v093 .draw-mode-bar .show-all{grid-column:1/-1!important}
+body.sami-v093 .compact-section,body.sami-v093 .compact-section-body,body.sami-v093 .compact-asset-list{width:100%!important;max-width:none!important;margin:0!important;padding-left:0!important;padding-right:0!important}
+body.sami-v093 .compact-section>summary{width:100%!important;margin:0!important;padding:0 10px!important;border-radius:0!important}
+body.sami-v093 .compact-section-body{padding-bottom:5px!important}
+body.sami-v093 .compact-asset-list{gap:2px!important}
+body.sami-v093 .compact-asset-row{display:grid!important;width:100%!important;max-width:none!important;margin:0!important;border-radius:0!important;border-left:0!important;border-right:0!important;padding:7px 10px!important;grid-template-columns:40px minmax(0,1fr)!important;min-height:47px!important}
+body.sami-v093 .selected-summary,body.sami-v093 .replace-row,body.sami-v093 .style-editor-compact,body.sami-v093 .selection-quick-v093{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+body.sami-v093 .style-editor-compact,body.sami-v093 .selected-summary{padding-left:9px!important;padding-right:9px!important}
+body.sami-v093 .replace-row,body.sami-v093 .selection-quick-v093{padding-left:5px!important;padding-right:5px!important}
+@media(max-width:1199px){body.sami-v093{--dock-width:380px!important}}
+@media(max-width:850px){body.sami-v093{--dock-width:min(360px,88vw)!important}.studio-docked:not(.dock-collapsed) #map{left:0!important;width:100%!important}.studio-docked #studioDock{box-shadow:9px 0 32px #0009}body.sami-v093.studio-docked #toolRail{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(max-width:520px){body.sami-v093{--dock-width:92vw!important}body.sami-v093.studio-docked #toolRail{grid-template-columns:repeat(4,minmax(0,1fr))!important}.install-gate-card{padding:24px 17px}}
+/* SAMI v1.0.1 — full-width sidebar + field capture polish */
+body.sami-v093{--dock-width:440px!important}
+body.sami-v093.studio-docked #studioDock{width:var(--dock-width)!important;padding-left:0!important;padding-right:0!important}
+body.sami-v093.studio-docked:not(.dock-collapsed) #map{left:var(--dock-width)!important;width:calc(100% - var(--dock-width))!important}
+body.sami-v093.studio-docked #dockOptions,body.sami-v093.studio-docked #dockOptions>.dock-body,body.sami-v093.studio-docked #drawer,body.sami-v093.studio-docked #drawerContent,body.sami-v093.studio-docked .drawer-content{width:100%!important;max-width:none!important;margin:0!important;padding-left:0!important;padding-right:0!important}
+body.sami-v093.studio-docked .drawer-content{padding-bottom:18px!important}
+body.sami-v093.studio-docked #drawerContent>*{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+body.sami-v093 .compact-section,body.sami-v093 .compact-section-body,body.sami-v093 .compact-asset-list,body.sami-v093 .asset-category,body.sami-v093 .asset-list,body.sami-v093 .draw-library,body.sami-v093 .plan-object-list{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+body.sami-v093 .compact-section-body{padding-left:0!important;padding-right:0!important}
+body.sami-v093 .compact-section>summary,body.sami-v093 .asset-category>summary{width:100%!important;border-radius:0!important;margin:0!important;padding-left:12px!important;padding-right:12px!important}
+body.sami-v093 .compact-asset-row,body.sami-v093 .asset-palette,body.sami-v093 .draw-library-item,body.sami-v093 .plan-object-list button{width:100%!important;max-width:none!important;margin:0!important;border-left:0!important;border-right:0!important;border-radius:0!important;padding-left:12px!important;padding-right:12px!important}
+body.sami-v093 .asset-category{border-left:0!important;border-right:0!important;border-radius:0!important;padding:0!important;margin-top:0!important;margin-bottom:0!important}
+body.sami-v093 .asset-list.visual-assets,body.sami-v093 .asset-list.compact,body.sami-v093 .draw-library{grid-template-columns:1fr!important;gap:0!important;padding:0!important}
+body.sami-v093 .compact-asset-list{gap:0!important}
+body.sami-v093 .draw-mode-bar{width:100%!important;margin:0!important;padding:4px!important;border-radius:0!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
+body.sami-v093 .draw-mode-bar .show-all{grid-column:1/-1!important}
+body.sami-v093.studio-docked #toolRail{width:100%!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;padding:4px!important;gap:2px!important}
+body.sami-v093.studio-docked #toolRail .rail-tool{min-width:0!important;width:100%!important}
+body.dock-collapsed #studioDock{display:none!important}
+body.dock-collapsed #map,body.dock-collapsed .creator-workspace{left:0!important;width:100%!important}
+body.dock-collapsed #dockReopen{display:block!important}
+body.sami-v093 #dockReopen.workspace-tool-tab{position:absolute!important;left:0!important;top:50%!important;transform:translateY(-50%)!important;z-index:2200!important;border-radius:0 10px 10px 0!important;border-left:0!important;padding:13px 7px!important;min-width:32px!important;min-height:86px!important;background:#101c19eb!important;box-shadow:6px 0 22px #0007!important;writing-mode:vertical-rl!important}
+body.sami-v093 #railCollapse{display:none!important}
+.explore-capture-v101{display:grid;grid-template-columns:1fr 1fr;gap:4px;width:100%;padding:7px 0 0}.explore-capture-v101 button{min-height:42px;border-radius:7px}.explore-capture-note{font-size:9px;color:#8fa99e;line-height:1.45;padding:7px 10px 9px;border-bottom:1px solid #ffffff0e}.explore-capture-note strong{color:#dcebe5}
+#salesIntroSkip{display:none!important}
+#closeAppV101{min-width:58px;padding:0 10px!important}
+#samiClosedScreen{position:fixed;inset:0;z-index:50000;display:grid;place-items:center;background:#000;color:#83968d;text-align:center;letter-spacing:.12em;text-transform:uppercase;font-size:10px}
+#samiClosedScreen img{width:min(330px,64vw);opacity:.4;filter:grayscale(.4)}
+@media(max-width:1240px){body.sami-v093{--dock-width:410px!important}}
+@media(max-width:850px){body.sami-v093{--dock-width:min(390px,92vw)!important}body.sami-v093.studio-docked:not(.dock-collapsed) #map{left:0!important;width:100%!important}}
+@media(max-width:520px){body.sami-v093{--dock-width:94vw!important}.explore-capture-v101{grid-template-columns:1fr 1fr}}
+
+@media(max-width:760px){#closeAppV101{font-size:0!important;min-width:38px!important}#closeAppV101:after{content:"×";font-size:19px}}
+/* SAMI v1.1.0 — field-first workspace and full-width tool dock */
+body.sami-v103 {
+  --dock-width: 456px !important;
+  --workspace-green: #62f4aa;
+  --workspace-panel: #0d1916;
+}
+
+body.sami-v103 .topbar,
+body.sami-v103 .modebar {
+  background:
+    linear-gradient(90deg, rgba(31, 84, 61, .12), transparent 38%),
+    #0b1514;
+}
+
+body.sami-v103.studio-docked #studioDock {
+  display: flex !important;
+  flex-direction: column !important;
+  width: var(--dock-width) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(ellipse at 18% 14%, rgba(55, 219, 141, .08), transparent 38%),
+    linear-gradient(180deg, #101e1a, #0b1512 72%);
+  box-shadow: 12px 0 42px rgba(0, 0, 0, .28);
+}
+
+body.sami-v103.studio-docked:not(.dock-collapsed) #map {
+  left: var(--dock-width) !important;
+  width: calc(100% - var(--dock-width)) !important;
+}
+
+body.sami-v103 #studioDock .dock-title {
+  flex: 0 0 41px;
+  height: 41px;
+  min-height: 41px;
+  padding: 0 8px 0 12px;
+  background: rgba(13, 26, 22, .96);
+  border-bottom-color: rgba(103, 228, 168, .16);
+  backdrop-filter: blur(16px);
+}
+
+body.sami-v103 #studioDock .dock-title button {
+  width: 38px;
+  min-width: 38px;
+  height: 34px;
+  min-height: 34px;
+  border-radius: 7px;
+}
+
+body.sami-v103.studio-docked #toolRail {
+  position: relative !important;
+  z-index: 6;
+  flex: 0 0 auto;
+  display: grid !important;
+  width: 100% !important;
+  max-width: none !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 3px !important;
+  margin: 0 !important;
+  padding: 5px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(111, 222, 166, .14) !important;
+  border-radius: 0 !important;
+  background: rgba(13, 26, 22, .94) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .14) !important;
+}
+
+body.sami-v103.studio-docked #toolRail[data-rail-count="1"] { grid-template-columns: 1fr !important; }
+body.sami-v103.studio-docked #toolRail[data-rail-count="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+body.sami-v103.studio-docked #toolRail[data-rail-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+
+body.sami-v103.studio-docked #toolRail .rail-tool {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 47px !important;
+  min-height: 47px !important;
+  margin: 0 !important;
+  padding: 3px 1px !important;
+  border: 1px solid transparent;
+  border-radius: 7px !important;
+  background: rgba(255, 255, 255, .025);
+}
+
+body.sami-v103.studio-docked #toolRail .rail-tool span {
+  font-size: 18px;
+  line-height: 19px;
+}
+
+body.sami-v103.studio-docked #toolRail .rail-tool small {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 8px;
+  line-height: 1.05;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.sami-v103.studio-docked #toolRail .rail-tool.active {
+  border-color: rgba(109, 239, 174, .38);
+  background: linear-gradient(180deg, rgba(48, 112, 82, .78), rgba(28, 72, 52, .82));
+  box-shadow: inset 0 0 18px rgba(72, 241, 155, .08), 0 0 18px rgba(51, 222, 137, .08);
+}
+
+body.sami-v103.studio-docked #dockOptions {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100% !important;
+  overflow: hidden;
+  border: 0;
+}
+
+body.sami-v103.studio-docked #drawStatus {
+  position: static !important;
+  z-index: 8;
+  flex: 0 0 auto;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 7px 8px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(101, 232, 164, .18) !important;
+  border-radius: 0 !important;
+  background: linear-gradient(90deg, rgba(30, 89, 62, .70), rgba(12, 30, 23, .96)) !important;
+  box-shadow: none !important;
+}
+
+body.sami-v103.studio-docked #drawStatus[hidden] { display: none !important; }
+
+body.sami-v103.studio-docked #drawStatus .draw-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  margin: 5px 0 0 !important;
+}
+
+body.sami-v103.studio-docked #drawStatus .draw-actions button {
+  width: 100%;
+  min-height: 33px;
+  padding: 3px 5px;
+}
+
+body.sami-v103.studio-docked #dockOptions > summary { display: none !important; }
+
+body.sami-v103.studio-docked #dockOptions > .dock-body {
+  display: flex;
+  width: 100% !important;
+  height: 100%;
+  min-height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.sami-v103.studio-docked #drawer {
+  position: static !important;
+  display: flex !important;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 0;
+  max-height: none !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+body.sami-v103.studio-docked #drawer .drawer-head {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 7px 10px 5px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .055);
+  background: rgba(12, 23, 20, .80);
+}
+
+body.sami-v103.studio-docked #drawer .drawer-head h2 {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: -.2px;
+}
+
+body.sami-v103.studio-docked #drawerContent,
+body.sami-v103.studio-docked #drawer .drawer-content {
+  flex: 1 1 auto;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: none !important;
+  min-height: 0;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 0 20px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+body.sami-v103 #drawerContent > *,
+body.sami-v103 .compact-section,
+body.sami-v103 .compact-section-body,
+body.sami-v103 .compact-asset-list,
+body.sami-v103 .compact-asset-row,
+body.sami-v103 .asset-category,
+body.sami-v103 .asset-grid,
+body.sami-v103 .asset-list,
+body.sami-v103 .draw-library,
+body.sami-v103 .plan-object-list {
+  width: 100% !important;
+  max-width: none !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+body.sami-v103 .draw-mode-bar {
+  position: sticky !important;
+  top: 0;
+  z-index: 9;
+  display: grid;
+  width: 100% !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 3px !important;
+  margin: 0 !important;
+  padding: 5px !important;
+  border-bottom: 1px solid rgba(103, 235, 169, .15);
+  border-radius: 0 !important;
+  background: rgba(11, 22, 18, .97) !important;
+  backdrop-filter: blur(16px);
+}
+
+body.sami-v103 .draw-mode-bar button,
+body.sami-v103 .draw-mode-bar .show-all {
+  grid-column: auto !important;
+  min-width: 0 !important;
+  min-height: 34px !important;
+  padding: 2px 3px !important;
+  overflow: hidden;
+  font-size: 8px !important;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+}
+
+body.sami-v103 .active-draw-strip {
+  width: calc(100% - 10px) !important;
+  margin: 5px !important;
+  padding: 6px 8px;
+  background: linear-gradient(90deg, rgba(36, 93, 67, .58), rgba(18, 44, 34, .56));
+  border-color: rgba(90, 213, 151, .28);
+}
+
+body.sami-v103 .compact-section {
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .06) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+body.sami-v103 .compact-section > summary,
+body.sami-v103 .asset-category > summary {
+  width: 100% !important;
+  min-height: 43px;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  border-radius: 0 !important;
+  background: rgba(255, 255, 255, .018);
+}
+
+body.sami-v103 .compact-section[open] > summary,
+body.sami-v103 .asset-category[open] > summary {
+  background: rgba(71, 156, 112, .10);
+}
+
+body.sami-v103 .compact-section-body,
+body.sami-v103 .compact-asset-list,
+body.sami-v103 .asset-grid,
+body.sami-v103 .asset-list.visual-assets,
+body.sami-v103 .asset-list.compact,
+body.sami-v103 .draw-library {
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+  padding: 0 !important;
+}
+
+body.sami-v103 .compact-asset-row,
+body.sami-v103 .asset-palette,
+body.sami-v103 .draw-library-item,
+body.sami-v103 .plan-object-list button {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 48px !important;
+  margin: 0 !important;
+  padding: 7px 12px !important;
+  border-right: 0 !important;
+  border-left: 0 !important;
+  border-radius: 0 !important;
+}
+
+body.sami-v103 .compact-asset-row {
+  grid-template-columns: 40px minmax(0, 1fr) !important;
+}
+
+body.sami-v103 .asset-palette {
+  display: grid !important;
+  grid-template-columns: 66px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 9px !important;
+  text-align: left;
+}
+
+body.sami-v103 .asset-palette .asset-preview {
+  width: 62px;
+  height: 43px;
+  min-height: 43px;
+  padding: 4px;
+}
+
+body.sami-v103 .asset-palette .asset-copy { font-size: 10px; }
+
+body.sami-v103 .style-editor-compact,
+body.sami-v103 .selected-summary,
+body.sami-v103 .replace-row,
+body.sami-v103 .selection-quick-v093,
+body.sami-v103 .compact-action-row,
+body.sami-v103 .two-way-toggle,
+body.sami-v103 .style-choice-grid,
+body.sami-v103 .area-summary,
+body.sami-v103 .area-method-grid,
+body.sami-v103 .service-check,
+body.sami-v103 .service-add-row {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+body.sami-v103 .style-editor-compact,
+body.sami-v103 .selected-summary,
+body.sami-v103 .replace-row,
+body.sami-v103 .selection-quick-v093,
+body.sami-v103 .compact-action-row,
+body.sami-v103 .two-way-toggle,
+body.sami-v103 .style-choice-grid,
+body.sami-v103 .area-summary,
+body.sami-v103 .area-method-grid {
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
+
+body.sami-v103 .v103-search { margin: 7px 8px 5px; width: calc(100% - 16px); }
+body.sami-v103 .v103-explore-row { margin-top: 0; }
+body.sami-v103 .v103-area-button { width: calc(100% - 16px) !important; margin: 6px 8px !important; }
+
+.field-capture-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px;
+  border-top: 1px solid rgba(255, 255, 255, .055);
+  border-bottom: 1px solid rgba(255, 255, 255, .055);
+  background: rgba(78, 188, 132, .055);
+}
+
+.field-capture-strip > span { min-width: 0; }
+.field-capture-strip strong { display: block; font-size: 10px; color: #e4f4ec; }
+.field-capture-strip small { display: block; margin-top: 2px; color: #819d90; font-size: 8px; line-height: 1.25; }
+.field-capture-strip > div { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.field-capture-strip button { min-height: 36px; padding: 4px 9px; font-size: 9px; }
+
+.v103-note-field {
+  display: block;
+  width: 100%;
+  min-height: 128px;
+  resize: vertical;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.marker-output-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 54px;
+  padding: 8px 12px;
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+  background: rgba(74, 176, 124, .055);
+}
+
+.marker-output-toggle span { min-width: 0; }
+.marker-output-toggle strong { display: block; font-size: 10px; }
+.marker-output-toggle small { display: block; margin-top: 2px; color: #829c91; font-size: 8px; }
+.marker-output-toggle input { width: 19px; height: 19px; flex: 0 0 auto; }
+
+.service-guidance {
+  display: grid;
+  gap: 4px;
+  width: calc(100% - 16px);
+  margin: 8px;
+  padding: 10px 11px;
+  border: 1px solid rgba(223, 174, 76, .22);
+  border-radius: 8px;
+  background: rgba(151, 103, 30, .08);
+  color: #9fb2aa;
+  font-size: 8px;
+  line-height: 1.45;
+}
+
+.service-guidance strong { color: #e7d6aa; font-size: 9px; }
+
+body.sami-v103 .selection-bar {
+  max-width: calc(100% - var(--dock-width) - 110px);
+  background: rgba(10, 25, 20, .92);
+  border-color: rgba(95, 222, 158, .26);
+  backdrop-filter: blur(16px);
+}
+
+body.sami-v103 #dockReopen.workspace-tool-tab {
+  border-radius: 0 11px 11px 0 !important;
+  background: rgba(10, 32, 24, .94) !important;
+  border-right-color: rgba(99, 235, 169, .48) !important;
+  box-shadow: 7px 0 24px rgba(0, 0, 0, .42), 0 0 22px rgba(52, 224, 139, .09) !important;
+}
+
+body.sami-v103.dock-collapsed #studioDock { display: none !important; }
+body.sami-v103.dock-collapsed #map,
+body.sami-v103.dock-collapsed .creator-workspace { left: 0 !important; width: 100% !important; }
+
+body.sami-v103 .map-style-options {
+  background: rgba(9, 24, 19, .94);
+  border-color: rgba(89, 205, 146, .32);
+  box-shadow: 0 10px 31px rgba(0, 0, 0, .50), 0 0 20px rgba(56, 225, 142, .07);
+}
+
+body.sami-v103 .leaflet-top.leaflet-left { display: none !important; }
+
+@media (max-width: 1260px) {
+  body.sami-v103 { --dock-width: 420px !important; }
+}
+
+@media (max-width: 900px) {
+  body.sami-v103 { --dock-width: min(410px, 92vw) !important; }
+  body.sami-v103.studio-docked:not(.dock-collapsed) #map { left: 0 !important; width: 100% !important; }
+  body.sami-v103.studio-docked #toolRail { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  body.sami-v103.studio-docked #toolRail[data-rail-count="1"] { grid-template-columns: 1fr !important; }
+  body.sami-v103.studio-docked #toolRail[data-rail-count="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  body.sami-v103.studio-docked #toolRail[data-rail-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  body.sami-v103 .selection-bar { max-width: calc(100% - 24px); }
+}
+
+@media (max-width: 540px) {
+  body.sami-v103 { --dock-width: 94vw !important; }
+  body.sami-v103 .draw-mode-bar { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  body.sami-v103 .field-capture-strip { grid-template-columns: 1fr; }
+  body.sami-v103 .field-capture-strip > div { width: 100%; }
+}
+
+@media (max-height: 620px) and (orientation: landscape) {
+  body.sami-v103 #studioDock .dock-title { flex-basis: 36px; height: 36px; min-height: 36px; }
+  body.sami-v103.studio-docked #toolRail .rail-tool { height: 39px !important; min-height: 39px !important; }
+  body.sami-v103.studio-docked #toolRail .rail-tool small { display: none !important; }
+}
+/* SAMI v1.2.0 final interaction polish */
+body.sami-v120{--dock-width:456px!important;--control-size:42px;--header-control:38px}
+body.sami-v120 .topbar{min-height:54px;padding:6px 10px;gap:8px;overflow:visible}
+body.sami-v120 .top-actions{display:flex;align-items:center;justify-content:flex-end;gap:4px;min-width:0;flex-wrap:nowrap}
+body.sami-v120 .top-actions .header-btn,body.sami-v120 .top-actions .accent-btn,body.sami-v120 .symbol-btn{width:var(--header-control)!important;min-width:var(--header-control)!important;height:var(--header-control)!important;min-height:var(--header-control)!important;padding:0!important;border-radius:8px!important;display:grid!important;place-items:center!important;font-size:16px!important;line-height:1!important;white-space:nowrap;overflow:hidden}
+body.sami-v120 #exportBtn{background:linear-gradient(180deg,#7be69a,#47ce9a)!important;color:#07130d!important;border-color:#9ff4b6!important}
+body.sami-v120 .project-title-wrap{min-width:120px;max-width:min(440px,42vw)}
+body.sami-v120 .project-title{max-width:100%;min-width:0}
+body.sami-v120 .map-controls{gap:5px!important}
+body.sami-v120 .map-controls>button,body.sami-v120 .map-style-quick>#mapStyleToggle{box-sizing:border-box!important;width:var(--control-size)!important;min-width:var(--control-size)!important;height:var(--control-size)!important;min-height:var(--control-size)!important;max-width:var(--control-size)!important;max-height:var(--control-size)!important;padding:0!important;border-radius:9px!important;display:grid!important;place-items:center!important;font-size:16px!important;line-height:1!important}
+body.sami-v120 #lockBtn span,body.sami-v120 .history-controls button span{display:none!important}
+body.sami-v120 .map-style-quick{height:var(--control-size)!important;align-items:center!important}
+body.sami-v120 .map-style-options{height:var(--control-size)!important;right:calc(var(--control-size) + 5px)!important;padding:3px!important}
+body.sami-v120 .map-style-options button{height:34px!important;min-height:34px!important;min-width:54px!important;padding:0 7px!important;font-size:9px!important}
+body.sami-v120 .canvas-toolbar{gap:5px!important}
+body.sami-v120 .history-controls{display:flex;gap:4px}
+body.sami-v120 .history-controls button,body.sami-v120 #baseCollapse{width:var(--control-size)!important;min-width:var(--control-size)!important;height:var(--control-size)!important;min-height:var(--control-size)!important;padding:0!important;border-radius:9px!important;display:grid!important;place-items:center!important}
+body.sami-v120 .mode-tabs{gap:3px}.mode-tabs button{min-height:36px;padding:4px 10px}
+body.sami-v120.studio-docked #toolRail{grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:2px!important;padding:4px!important}
+body.sami-v120.studio-docked #toolRail .rail-tool{height:44px!important;min-height:44px!important;border-radius:7px!important}
+body.sami-v120.studio-docked #toolRail .rail-tool span{font-size:17px!important}body.sami-v120.studio-docked #toolRail .rail-tool small{font-size:7.5px!important}
+body.sami-v120 .draw-mode-bar{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:3px!important;padding:4px!important}
+body.sami-v120 .draw-mode-bar button{min-height:31px!important;font-size:7.6px!important;padding:2px!important}
+body.sami-v120 .active-draw-strip{margin:4px!important;width:calc(100% - 8px)!important}
+body.sami-v120 .compact-section>summary,body.sami-v120 .asset-category>summary{min-height:39px!important;padding:0 10px!important}
+body.sami-v120 .compact-asset-row,body.sami-v120 .asset-palette,body.sami-v120 .draw-library-item,body.sami-v120 .plan-object-list button{min-height:43px!important;padding:6px 10px!important}
+body.sami-v120 .compact-asset-row{grid-template-columns:36px minmax(0,1fr)!important}
+body.sami-v120 .selection-bar{gap:3px!important;padding:4px 5px!important}.selection-bar button{min-width:31px!important;min-height:31px!important;padding:0 5px!important;font-size:13px!important}
+body.sami-v120 #dockReopen.workspace-tool-tab{border-radius:0 10px 10px 0!important}
+.sami-ui-tip{position:fixed;z-index:50000;transform:translateX(-50%) translateY(-3px);padding:6px 9px;border:1px solid rgba(104,255,172,.18);border-radius:7px;background:rgba(5,14,10,.94);backdrop-filter:blur(14px);box-shadow:0 8px 24px rgba(0,0,0,.38);color:#dff5e9;font:700 9px/1.2 Inter,ui-sans-serif,sans-serif;letter-spacing:.03em;opacity:0;pointer-events:none;transition:opacity .14s,transform .14s;white-space:nowrap}.sami-ui-tip.show{opacity:1;transform:translateX(-50%) translateY(0)}
+body.sami-v120 .service-guidance{font-size:8.5px!important;line-height:1.45!important}
+body.sami-v120 .service-check,body.sami-v120 .service-add-row{min-height:39px!important}
+@media(max-width:1020px){body.sami-v120{--dock-width:390px!important}.project-title-wrap{max-width:34vw!important}.mode-caption{display:none}.mode-tabs button{padding:4px 8px;font-size:10px}}
+@media(max-width:760px){body.sami-v120{--dock-width:min(380px,92vw)!important;--header-control:36px}.topbar{padding:5px 7px!important}.brand-button{width:76px!important;min-width:76px!important}.project-title-wrap{max-width:calc(100vw - 280px)!important}.project-meta{display:none}.mode-tabs{overflow-x:auto;scrollbar-width:none}.mode-tabs button{min-width:max-content}.canvas-toolbar{right:66px!important;top:10px!important}}
+@media(max-width:560px){body.sami-v120{--dock-width:94vw!important;--header-control:34px}.top-actions{gap:2px!important}.project-title-wrap{display:none}.brand-button{width:84px!important}.modebar{padding-right:4px!important}.mode-tabs button{font-size:9px;padding:3px 7px}.map-controls{right:8px!important}.canvas-toolbar{right:57px!important}.selection-bar>span{display:none!important}}
